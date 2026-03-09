@@ -13,9 +13,9 @@ export default function StudentDashboard() {
             <Text>Resource Sharing for Academics</Text>
             </View>
 
-            <View style={{flex:1, justifyContent:"center",alignItems:"center",marginBottom:"10",width:"100%"}}>
+            {/* <View style={{flex:1, justifyContent:"center",alignItems:"center",marginBottom:"10",width:"100%"}}>
                 <Image source={require("./images/group.png")} style={{height:"180",borderRadius:75, resizeMode:"contain"}} />
-            </View>
+            </View> */}
 
             <TextInput
                 placeholder="Search subjects or resources..."
@@ -25,31 +25,32 @@ export default function StudentDashboard() {
 
             <Text style={styles.section}>Preview Resources</Text>
 
-            <View style={{flexDirection:"row",justifyContent:"space-evenly",alignItems:"center", marginHorizontal:"20"}}> 
-                <View style={{borderWidth:1,width:150, height:130,borderRadius:10,padding:4}}>
-                    <Text style={{fontWeight:"bold",alignSelf:"center"}}>Computer Science</Text>
+            <View style={{alignItems:"center", marginHorizontal:"20"}}> 
+
+                <View style={{borderWidth:4,justifyContent:"center",alignItems:"center", width:"90%", height:200,borderRadius:10,backgroundColor: '#f8f8f8',padding:4,overflow: 'hidden',backgroundColor: '#f8f8f8',elevation: 3,marginBottom:10}}>
+                    <Image source={require("./images/ux.png")} style={{width:50,height:50}} />
+                    <Text style={{fontWeight:"bold",alignSelf:"center"}}>Artificial Intelligence</Text>
                 </View>
-                <View style={{borderWidth:1,width:150, height:130,borderRadius:10,padding:4}}>
-                    <Text style={{fontWeight:"bold",alignSelf:"center"}}>Literature</Text>
+                 <View style={{borderWidth:4,justifyContent:"center",alignItems:"center", width:"90%", height:200,borderRadius:10,backgroundColor: '#f8f8f8',padding:4,overflow: 'hidden',backgroundColor: '#f8f8f8',elevation: 3,marginBottom:10}}>
+                    <Image source={require("./images/ux.png")} style={{width:50,height:50}} />
+                    <Text style={{fontWeight:"bold",alignSelf:"center"}}>Operating System</Text>
                 </View>
+                 <View style={{borderWidth:4,justifyContent:"center",alignItems:"center", width:"90%", height:200,borderRadius:10,backgroundColor: '#f8f8f8',padding:4,overflow: 'hidden',backgroundColor: '#f8f8f8',elevation: 3,marginBottom:10}}>
+                    <Image source={require("./images/ux.png")} style={{width:50,height:50}} />
+                    <Text style={{fontWeight:"bold",alignSelf:"center"}}>Database Management System</Text>
+                </View>
+                 <View style={{borderWidth:4,justifyContent:"center",alignItems:"center", width:"90%", height:200,borderRadius:10,backgroundColor: '#f8f8f8',padding:4,overflow: 'hidden',backgroundColor: '#f8f8f8',elevation: 3,marginBottom:10}}>
+                    <Image source={require("./images/ux.png")} style={{width:50,height:50}} />
+                    <Text style={{fontWeight:"bold",alignSelf:"center"}}>Cloud Computing</Text>
+                </View>
+                 <View style={{borderWidth:4,justifyContent:"center",alignItems:"center", width:"90%", height:200,borderRadius:10,backgroundColor: '#f8f8f8',padding:4,overflow: 'hidden',backgroundColor: '#f8f8f8',elevation: 3,marginBottom:10}}>
+                    <Image source={require("./images/ux.png")} style={{width:50,height:50}} />
+                    <Text style={{fontWeight:"bold",alignSelf:"center"}}>Digital Marketing</Text>
+                </View>
+                
+
             </View>
 
-            <View style={styles.card}>
-                <Text>Operating Systems Notes</Text>
-            </View>
-
-            <View style={styles.card}>
-                <Text>DBMS Question Bank</Text>
-            </View>
-
-            <Text style={styles.section}>Subjects</Text>
-
-            <View style={styles.grid}>
-                <View style={styles.subject}><Text>OS</Text></View>
-                <View style={styles.subject}><Text>DBMS</Text></View>
-                <View style={styles.subject}><Text>CN</Text></View>
-                <View style={styles.subject}><Text>DSA</Text></View>
-            </View>
 
         </ScrollView>
         </SafeAreaView>
@@ -75,7 +76,8 @@ const styles = StyleSheet.create({
     },
     section: {
         fontWeight: "bold",
-        marginBottom: 10
+        marginBottom: 10,
+        padding:8
     },
     card: {
         backgroundColor: "#fff",
