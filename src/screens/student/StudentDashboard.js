@@ -1,15 +1,17 @@
 import { View, Text, StyleSheet, TextInput, ScrollView, Image, Platform, StatusBar } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Avatar, Card, IconButton } from 'react-native-paper';
+// import { Avatar, Card, IconButton } from 'react-native-paper';
+import BottomBar from "../common/BottomBar";
 
 export default function StudentDashboard() {
     return (
+        <>
         <SafeAreaView style={{flex:1}}>
         <ScrollView style={styles.container}>
             <View style={{flex:1,justifyContent:"center",alignItems:"center",marginBottom:"20"}}>
             
-            <Image source={require("./images/logo.png")} style={{height:"100",width:"100", borderRadius: 75, resizeMode:"contain"}}/>
-            <Text style={styles.header}>Ocean Waves</Text>
+            {/* <Image source={require("./images/logo.png")} style={{height:"100",width:"100", borderRadius: 75, resizeMode:"contain"}}/> */}
+            <Text style={styles.header}>Ocean Notes</Text>
             <Text>Resource Sharing for Academics</Text>
             </View>
 
@@ -52,7 +54,10 @@ export default function StudentDashboard() {
 
 
         </ScrollView>
+         <BottomBar />
         </SafeAreaView>
+       
+        </>
     );
 }
 
@@ -60,7 +65,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         //paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-        backgroundColor: "#F6F5FB"
+        backgroundColor: "#f3f3f5"
     },
     header: {
         fontSize: 26,
