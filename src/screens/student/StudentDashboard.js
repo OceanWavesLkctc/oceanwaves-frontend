@@ -10,7 +10,7 @@ export default function StudentDashboard() {
         <ScrollView style={styles.container}>
             <View style={{flex:1,justifyContent:"center",alignItems:"center",marginBottom:"20"}}>
             
-            {/* <Image source={require("./images/logo.png")} style={{height:"100",width:"100", borderRadius: 75, resizeMode:"contain"}}/> */}
+            <Image source={require("./images/Logo1.png")} style={{height:"150",width:"120", borderRadius: 75, resizeMode:"contain"}}/>
             <Text style={styles.header}>Ocean Notes</Text>
             <Text>Resource Sharing for Academics</Text>
             </View>

@@ -12,7 +12,7 @@ const BottomBar = () => {
         <AntDesign name="home" size={24} color="white" />
         <Text style={{color:"#fff"}}>Home</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={{alignItems:"center",marginTop:4}} onPress={navigation.navigate("Profile")}>
+      <TouchableOpacity style={{alignItems:"center",marginTop:4}}>
         <AntDesign name="profile" size={24} color="white" />
         <Text style={{color:"#fff"}}>Profile</Text>
       </TouchableOpacity>
