@@ -2,62 +2,19 @@ import { View, Text, StyleSheet, TextInput, ScrollView, Image, Platform, StatusB
 import { SafeAreaView } from "react-native-safe-area-context";
 // import { Avatar, Card, IconButton } from 'react-native-paper';
 import BottomBar from "../common/BottomBar";
+import ResourcePosts from "./ResourcePosts";
+
+
 
 export default function StudentDashboard() {
+   
     return (
-        <>
+        
         <SafeAreaView style={{flex:1}}>
-        <ScrollView style={styles.container}>
-            <View style={{flex:1,justifyContent:"center",alignItems:"center",marginBottom:"20"}}>
-            
-            <Image source={require("./images/Logo1.png")} style={{height:"150",width:"120", borderRadius: 75, resizeMode:"contain"}}/>
-            <Text style={styles.header}>Ocean Notes</Text>
-            <Text>Resource Sharing for Academics</Text>
-            </View>
-
-            {/* <View style={{flex:1, justifyContent:"center",alignItems:"center",marginBottom:"10",width:"100%"}}>
-                <Image source={require("./images/group.png")} style={{height:"180",borderRadius:75, resizeMode:"contain"}} />
-            </View> */}
-
-            <TextInput
-                placeholder="Search subjects or resources..."
-                style={styles.search}
-            />
-
-
-            <Text style={styles.section}>Preview Resources</Text>
-
-            <View style={{alignItems:"center", marginHorizontal:"20"}}> 
-
-                <View style={{borderWidth:4,justifyContent:"center",alignItems:"center", width:"90%", height:200,borderRadius:10,backgroundColor: '#f8f8f8',padding:4,overflow: 'hidden',backgroundColor: '#f8f8f8',elevation: 3,marginBottom:10}}>
-                    <Image source={require("./images/microchip.png")} style={{width:50,height:50}} />
-                    <Text style={{fontWeight:"bold",alignSelf:"center"}}>Artificial Intelligence</Text>
-                </View>
-                 <View style={{borderWidth:4,justifyContent:"center",alignItems:"center", width:"90%", height:200,borderRadius:10,backgroundColor: '#f8f8f8',padding:4,overflow: 'hidden',backgroundColor: '#f8f8f8',elevation: 3,marginBottom:10}}>
-                    <Image source={require("./images/system-update.png")} style={{width:50,height:50}} />
-                    <Text style={{fontWeight:"bold",alignSelf:"center"}}>Operating System</Text>
-                </View>
-                 <View style={{borderWidth:4,justifyContent:"center",alignItems:"center", width:"90%", height:200,borderRadius:10,backgroundColor: '#f8f8f8',padding:4,overflow: 'hidden',backgroundColor: '#f8f8f8',elevation: 3,marginBottom:10}}>
-                    <Image source={require("./images/database.png")} style={{width:50,height:50}} />
-                    <Text style={{fontWeight:"bold",alignSelf:"center"}}>Database Management System</Text>
-                </View>
-                 <View style={{borderWidth:4,justifyContent:"center",alignItems:"center", width:"90%", height:200,borderRadius:10,backgroundColor: '#f8f8f8',padding:4,overflow: 'hidden',backgroundColor: '#f8f8f8',elevation: 3,marginBottom:10}}>
-                    <Image source={require("./images/server.png")} style={{width:50,height:50}} />
-                    <Text style={{fontWeight:"bold",alignSelf:"center"}}>Cloud Computing</Text>
-                </View>
-                 <View style={{borderWidth:4,justifyContent:"center",alignItems:"center", width:"90%", height:200,borderRadius:10,backgroundColor: '#f8f8f8',padding:4,overflow: 'hidden',backgroundColor: '#f8f8f8',elevation: 3,marginBottom:10}}>
-                    <Image source={require("./images/datastructure.png")} style={{width:50,height:50}} />
-                    <Text style={{fontWeight:"bold",alignSelf:"center"}}>Data Structure</Text>
-                </View>
-                
-            </View>
-
-
-        </ScrollView>
+           <ResourcePosts />
          <BottomBar />
         </SafeAreaView>
-       
-        </>
+    
     );
 }
 
