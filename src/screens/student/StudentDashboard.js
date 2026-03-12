@@ -14,7 +14,6 @@ export default function StudentDashboard() {
            <ResourcePosts />
          <BottomBar />
         </SafeAreaView>
-    
     );
 }
 
