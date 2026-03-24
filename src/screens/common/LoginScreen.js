@@ -1,11 +1,19 @@
+import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 
 export default function LoginScreen({ navigation, route }) {
-
-    // Get role passed from RoleSelect screen
     const role = route?.params?.role || "student";
+    const [collegeId, setCollegeId] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
 
     const handleLogin = () => {
+        if (!collegeId.trim() || !password.trim()) {
+            setError("Please enter both College ID and Password.");
+            return;
+        }
+        setError("");
+
         if (role === "faculty") {
             navigation.navigate("FacultyDashboard");
         } else {
@@ -17,8 +25,22 @@ export default function LoginScreen({ navigation, route }) {
         <View style={styles.container}>
             <Text style={styles.title}>Login</Text>
 
-            <TextInput placeholder="College ID" style={styles.input} />
-            <TextInput placeholder="Password" style={styles.input} secureTextEntry />
+            {error ? <Text style={styles.errorText}>{error}</Text> : null}
+
+            <TextInput 
+                placeholder="College ID" 
+                style={styles.input} 
+                value={collegeId}
+                onChangeText={setCollegeId}
+                autoCapitalize="none"
+            />
+            <TextInput 
+                placeholder="Password" 
+                style={styles.input} 
+                value={password}
+                onChangeText={setPassword}
+                secureTextEntry 
+            />
 
             <TouchableOpacity style={styles.button} onPress={handleLogin}>
                 <Text style={styles.buttonText}>Continue</Text>
@@ -38,6 +60,11 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: "bold",
         marginBottom: 30,
+    },
+    errorText: {
+        color: "red",
+        marginBottom: 10,
+        fontWeight: "500",
     },
     input: {
         backgroundColor: "#fff",
