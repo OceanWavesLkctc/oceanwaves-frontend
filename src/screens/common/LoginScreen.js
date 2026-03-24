@@ -12,6 +12,13 @@ export default function LoginScreen({ navigation, route }) {
             setError("Please enter both College ID and Password.");
             return;
         }
+
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{6,}$/;
+        if (!passwordRegex.test(password)) {
+            setError("Password must be at least 6 chars and include a capital letter, small letter, number, and special character.");
+            return;
+        }
+
         setError("");
 
         if (role === "faculty") {
@@ -27,19 +34,19 @@ export default function LoginScreen({ navigation, route }) {
 
             {error ? <Text style={styles.errorText}>{error}</Text> : null}
 
-            <TextInput 
-                placeholder="College ID" 
-                style={styles.input} 
+            <TextInput
+                placeholder="College ID"
+                style={styles.input}
                 value={collegeId}
                 onChangeText={setCollegeId}
                 autoCapitalize="none"
             />
-            <TextInput 
-                placeholder="Password" 
-                style={styles.input} 
+            <TextInput
+                placeholder="Password"
+                style={styles.input}
                 value={password}
                 onChangeText={setPassword}
-                secureTextEntry 
+                secureTextEntry
             />
 
             <TouchableOpacity style={styles.button} onPress={handleLogin}>
@@ -73,7 +80,7 @@ const styles = StyleSheet.create({
         marginBottom: 16,
     },
     button: {
-        backgroundColor: "#5B3FD1",
+        backgroundColor: "#B39DDB",
         padding: 16,
         borderRadius: 10,
         alignItems: "center",
