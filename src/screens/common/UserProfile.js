@@ -4,7 +4,7 @@ import BottomBar from './BottomBar'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 
-const UserProfile = () => {
+const UserProfile = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={{ paddingBottom: 80 }}>
@@ -20,7 +20,10 @@ const UserProfile = () => {
 
         </View>
 
-        <TouchableOpacity style={{ backgroundColor: "#B39DDB", marginBottom: 10, width: 150, borderRadius: 75, padding: 10, alignSelf: "center", marginTop: "30" }}>
+        <TouchableOpacity
+          style={{ backgroundColor: "#B39DDB", marginBottom: 10, width: 150, borderRadius: 75, padding: 10, alignSelf: "center", marginTop: "30" }}
+          onPress={() => navigation.replace("PublicPreview")}
+        >
           <Text style={{ alignSelf: "center", color: "white", fontSize: 20, fontWeight: "600" }}> Log Out {" "}<FontAwesome name="sign-out" size={24} color="white" /></Text>
         </TouchableOpacity>
       </ScrollView>
