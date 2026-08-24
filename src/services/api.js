@@ -1,7 +1,6 @@
 import { Platform } from 'react-native';
 
-// UPDATE THIS WITH YOUR LOCAL MACHINE'S IP ADDRESS IF TESTING ON A PHYSICAL DEVICE
-const LOCAL_IP = '192.168.31.234'; // Actual Wi-Fi IP of the host machine
+const LOCAL_IP = '192.168.31.234';
 const BACKEND_PORT = '3000';
 
 export const API_BASE_URL = Platform.select({
@@ -12,19 +11,14 @@ export const API_BASE_URL = Platform.select({
 
 console.log('API Base URL is set to:', API_BASE_URL);
 
-/**
- * Perform a generic fetch request
- */
 async function request(endpoint, options = {}) {
     const url = `${API_BASE_URL}${endpoint}`;
 
-    // Default headers
     const headers = {
         'Accept': 'application/json',
         ...options.headers,
     };
 
-    // Auto-inject JSON Content-Type if body is not FormData
     if (options.body && !(options.body instanceof FormData)) {
         headers['Content-Type'] = 'application/json';
         options.body = JSON.stringify(options.body);
@@ -71,7 +65,7 @@ export const api = {
 
         let reqBody = body;
         if (isMultipart) {
-            // Fetch will set correct boundary header automatically when body is FormData
+
             reqBody = body;
         }
 
