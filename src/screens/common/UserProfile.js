@@ -19,11 +19,11 @@ const UserProfile = () => {
             <ScrollView contentContainerStyle={styles.scrollContent}>
                 <View style={styles.profileCard}>
                     <Text style={styles.title}>My Profile</Text>
-                    
+
                     <View style={styles.avatarContainer}>
-                        <Image 
-                            source={require("./commonimages/avatar.png")} 
-                            style={styles.avatar} 
+                        <Image
+                            source={require("./commonimages/avatar.png")}
+                            style={styles.avatar}
                         />
                     </View>
 
@@ -42,19 +42,21 @@ const UserProfile = () => {
                         <Text style={styles.detailValue}>{user?.department || "N/A"}</Text>
                     </View>
 
-                    {user?.role === 'student' && (
-                        <>
-                            <View style={styles.detailRow}>
-                                <Text style={styles.detailLabel}>Course Enrolled:</Text>
-                                <Text style={styles.detailValue}>{user?.course || "N/A"}</Text>
-                            </View>
-                            <View style={styles.detailRow}>
-                                <Text style={styles.detailLabel}>Roll Number:</Text>
-                                <Text style={styles.detailValue}>{user?.rollnumber || "N/A"}</Text>
-                            </View>
-                        </>
-                    )}
-                </View>
+                    {
+                        user?.role === 'student' && (
+                            <>
+                                <View style={styles.detailRow}>
+                                    <Text style={styles.detailLabel}>Course Enrolled:</Text>
+                                    <Text style={styles.detailValue}>{user?.course || "N/A"}</Text>
+                                </View>
+                                <View style={styles.detailRow}>
+                                    <Text style={styles.detailLabel}>Roll Number:</Text>
+                                    <Text style={styles.detailValue}>{user?.rollnumber || "N/A"}</Text>
+                                </View>
+                            </>
+                        )
+                    }
+                </View >
 
                 <TouchableOpacity
                     style={styles.logoutBtn}
@@ -64,11 +66,11 @@ const UserProfile = () => {
                         Log Out <FontAwesome name="sign-out" size={20} color="white" />
                     </Text>
                 </TouchableOpacity>
-            </ScrollView>
+            </ScrollView >
 
             {/* Render correct bottom footer based on user's role */}
             {user?.role === 'teacher' ? <FacultyBottomBar /> : <BottomBar />}
-        </SafeAreaView>
+        </SafeAreaView >
     );
 };
 

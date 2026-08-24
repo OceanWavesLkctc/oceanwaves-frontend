@@ -133,37 +133,11 @@ export default function LoginScreen({ navigation, route }) {
                         {role === "faculty" ? "Faculty Hub" : "Student Hub"}
                     </Text>
                     <Text style={styles.subtitle}>
-                        {isSignUp ? "Create a new account" : "Sign in to access academic resources"}
+                        Sign in to access academic resources
                     </Text>
-
-                    {/* Tabs to switch between Login and Signup */}
-                    <View style={styles.tabContainer}>
-                        <TouchableOpacity 
-                            style={[styles.tab, !isSignUp && styles.activeTab]} 
-                            onPress={() => { setIsSignUp(false); setError(""); setSuccessMsg(""); }}
-                        >
-                            <Text style={[styles.tabText, !isSignUp && styles.activeTabText]}>Login</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity 
-                            style={[styles.tab, isSignUp && styles.activeTab]} 
-                            onPress={() => { setIsSignUp(true); setError(""); setSuccessMsg(""); }}
-                        >
-                            <Text style={[styles.tabText, isSignUp && styles.activeTabText]}>Sign Up</Text>
-                        </TouchableOpacity>
-                    </View>
 
                     {error ? <Text style={styles.errorText}>{error}</Text> : null}
                     {successMsg ? <Text style={styles.successText}>{successMsg}</Text> : null}
-
-                    {/* Sign Up Fields */}
-                    {isSignUp && (
-                        <TextInput
-                            placeholder="Full Name"
-                            style={styles.input}
-                            value={name}
-                            onChangeText={setName}
-                        />
-                    )}
 
                     <TextInput
                         placeholder="Email Address"
@@ -182,43 +156,24 @@ export default function LoginScreen({ navigation, route }) {
                         secureTextEntry
                     />
 
-                    {isSignUp && (
-                        <TextInput
-                            placeholder="Department (e.g. CSE, IT)"
-                            style={styles.input}
-                            value={department}
-                            onChangeText={setDepartment}
-                        />
-                    )}
-
-                    {isSignUp && role === "student" && (
-                        <>
-                            <TextInput
-                                placeholder="Roll Number"
-                                style={styles.input}
-                                value={rollNumber}
-                                onChangeText={setRollNumber}
-                                keyboardType="numeric"
-                            />
-                            <TextInput
-                                placeholder="Course (e.g. B.Tech)"
-                                style={styles.input}
-                                value={course}
-                                onChangeText={setCourse}
-                            />
-                        </>
-                    )}
-
                     <TouchableOpacity style={styles.button} onPress={handleAction} disabled={loading}>
                         {loading ? (
                             <ActivityIndicator size="small" color="#fff" />
                         ) : (
-                            <Text style={styles.buttonText}>
-                                {isSignUp ? "Register" : "Continue"}
-                            </Text>
+                            <Text style={styles.buttonText}>Continue</Text>
                         )}
                     </TouchableOpacity>
-                    
+
+                    <Text style={{ fontSize: 15, textAlign: "center", marginTop: 22, color: "#666" }}>
+                        Don't have an account?{" "}
+                        <Text 
+                            style={{ color: "#5B3FD1", fontWeight: "bold" }} 
+                            onPress={() => navigation.navigate("SignUp")}
+                        >
+                            Sign Up
+                        </Text>
+                    </Text>
+
                     <TouchableOpacity 
                         style={styles.backButton}
                         onPress={() => navigation.navigate("RoleSelect")}

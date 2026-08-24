@@ -1,14 +1,13 @@
 import React, { useState, useContext } from 'react';
-import { 
-    View, 
-    Text, 
-    StyleSheet, 
-    TextInput, 
-    TouchableOpacity, 
+import {
+    View,
+    Text,
+    StyleSheet,
+    TextInput,
+    TouchableOpacity,
     ActivityIndicator,
     Alert,
-    ScrollView,
-    SafeAreaView
+    ScrollView
 } from "react-native";
 import AntDesign from '@expo/vector-icons/AntDesign';
 import * as DocumentPicker from 'expo-document-picker';
@@ -88,7 +87,7 @@ export default function UploadResourceScreen({ navigation }) {
                 setSubject("");
                 setTopic("");
                 setSelectedFile(null);
-                
+
                 // Show success Alert and navigate
                 Alert.alert("Success", "Question bank uploaded successfully!", [
                     { text: "OK", onPress: () => navigation.navigate("FacultyDashboard") }
@@ -169,8 +168,8 @@ export default function UploadResourceScreen({ navigation }) {
                         </TouchableOpacity>
                     )}
 
-                    <TouchableOpacity 
-                        style={[styles.submitBtn, loading && styles.submitBtnDisabled]} 
+                    <TouchableOpacity
+                        style={[styles.submitBtn, loading && styles.submitBtnDisabled]}
                         onPress={handleUpload}
                         disabled={loading}
                     >

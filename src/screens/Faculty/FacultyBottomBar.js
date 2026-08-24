@@ -9,36 +9,36 @@ const FacultyBottomBar = () => {
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity 
-                style={styles.iconStyle} 
+            <TouchableOpacity
+                style={styles.iconStyle}
                 onPress={() => navigation.navigate("FacultyDashboard")}
             >
-                <AntDesign 
-                    name="home" 
-                    size={28} 
-                    color={route.name === "FacultyDashboard" ? "white" : "#E2D9F3"} 
+                <AntDesign
+                    name="home"
+                    size={28}
+                    color={route.name === "FacultyDashboard" ? "white" : "#E2D9F3"}
                 />
             </TouchableOpacity>
 
-            <TouchableOpacity 
-                style={styles.iconStyle} 
+            <TouchableOpacity
+                style={styles.iconStyle}
                 onPress={() => navigation.navigate("UploadResource")}
             >
-                <AntDesign 
-                    name="clouduploado" 
-                    size={28} 
-                    color={route.name === "UploadResource" ? "white" : "#E2D9F3"} 
+                <AntDesign
+                    name="clouduploado"
+                    size={28}
+                    color={route.name === "UploadResource" ? "white" : "#E2D9F3"}
                 />
             </TouchableOpacity>
 
-            <TouchableOpacity 
-                style={styles.iconStyle} 
+            <TouchableOpacity
+                style={styles.iconStyle}
                 onPress={() => navigation.navigate("Profile")}
             >
-                <AntDesign 
-                    name="user" 
-                    size={28} 
-                    color={route.name === "Profile" ? "white" : "#E2D9F3"} 
+                <AntDesign
+                    name="user"
+                    size={28}
+                    color={route.name === "Profile" ? "white" : "#E2D9F3"}
                 />
             </TouchableOpacity>
         </View>

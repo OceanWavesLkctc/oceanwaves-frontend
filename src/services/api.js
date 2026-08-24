@@ -1,7 +1,7 @@
 import { Platform } from 'react-native';
 
 // UPDATE THIS WITH YOUR LOCAL MACHINE'S IP ADDRESS IF TESTING ON A PHYSICAL DEVICE
-const LOCAL_IP = '10.0.2.2'; // Loopback IP for Android Emulator
+const LOCAL_IP = '10.146.161.198'; // Actual Wi-Fi IP of the host machine
 const BACKEND_PORT = '3000';
 
 export const API_BASE_URL = Platform.select({
@@ -17,7 +17,7 @@ console.log('API Base URL is set to:', API_BASE_URL);
  */
 async function request(endpoint, options = {}) {
     const url = `${API_BASE_URL}${endpoint}`;
-    
+
     // Default headers
     const headers = {
         'Accept': 'application/json',
@@ -38,15 +38,15 @@ async function request(endpoint, options = {}) {
     try {
         const response = await fetch(url, config);
         const data = await response.json().catch(() => ({}));
-        
+
         if (!response.ok) {
-            return { 
-                success: false, 
+            return {
+                success: false,
                 error: data.message || `Request failed with status ${response.status}`,
-                status: response.status 
+                status: response.status
             };
         }
-        
+
         return { success: true, data };
     } catch (err) {
         console.error(`API Error on ${url}:`, err);
@@ -62,22 +62,22 @@ export const api = {
         }
         return request(endpoint, { method: 'GET', headers });
     },
-    
+
     post: (endpoint, body, token, isMultipart = false) => {
         const headers = {};
         if (token) {
             headers['Authorization'] = `Bearer ${token}`;
         }
-        
+
         let reqBody = body;
         if (isMultipart) {
             // Fetch will set correct boundary header automatically when body is FormData
-            reqBody = body; 
+            reqBody = body;
         }
-        
+
         return request(endpoint, { method: 'POST', body: reqBody, headers });
     },
-    
+
     put: (endpoint, body, token, isMultipart = false) => {
         const headers = {};
         if (token) {
@@ -85,7 +85,7 @@ export const api = {
         }
         return request(endpoint, { method: 'PUT', body, headers });
     },
-    
+
     delete: (endpoint, token) => {
         const headers = {};
         if (token) {

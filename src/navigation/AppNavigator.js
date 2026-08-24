@@ -18,6 +18,8 @@ import FacultyResourceDetail from "../screens/Faculty/ResourceDetailScreen";
 import UploadResourceScreen from "../screens/Faculty/UploadResourceScreen";
 
 import UserProfile from "../screens/common/UserProfile";
+// import FacultyUserProfile from "../screens/Faculty/FacultyUserProfile";
+import SignUpScreen from "../screens/common/SignUpScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -56,6 +58,7 @@ export default function AppNavigator() {
                         <Stack.Screen name="PublicPreview" component={PublicPreviewScreen} />
                         <Stack.Screen name="RoleSelect" component={RoleSelectScreen} />
                         <Stack.Screen name="Login" component={LoginScreen} />
+                        <Stack.Screen name="SignUp" component={SignUpScreen} />
                     </>
                 )}
             </Stack.Navigator>
