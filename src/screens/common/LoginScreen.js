@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
-import { 
-    View, 
-    Text, 
-    TextInput, 
-    TouchableOpacity, 
-    StyleSheet, 
-    ScrollView, 
+import {
+    View,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    StyleSheet,
+    ScrollView,
     ActivityIndicator,
     KeyboardAvoidingView,
     Platform
@@ -92,7 +92,7 @@ export default function LoginScreen({ navigation, route }) {
                     password,
                     department,
                 };
-                
+
                 if (role === "student") {
                     signupData.rollnumber = Number(rollNumber);
                     signupData.course = course;
@@ -123,7 +123,7 @@ export default function LoginScreen({ navigation, route }) {
     };
 
     return (
-        <KeyboardAvoidingView 
+        <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={{ flex: 1 }}
         >
@@ -148,7 +148,6 @@ export default function LoginScreen({ navigation, route }) {
                         keyboardType="email-address"
                     />
 
-<<<<<<< HEAD
                     <TextInput
                         placeholder="Password"
                         style={styles.input}
@@ -167,15 +166,15 @@ export default function LoginScreen({ navigation, route }) {
 
                     <Text style={{ fontSize: 15, textAlign: "center", marginTop: 22, color: "#666" }}>
                         Don't have an account?{" "}
-                        <Text 
-                            style={{ color: "#5B3FD1", fontWeight: "bold" }} 
+                        <Text
+                            style={{ color: "#5B3FD1", fontWeight: "bold" }}
                             onPress={() => navigation.navigate("SignUp")}
                         >
                             Sign Up
                         </Text>
                     </Text>
 
-                    <TouchableOpacity 
+                    <TouchableOpacity
                         style={styles.backButton}
                         onPress={() => navigation.navigate("RoleSelect")}
                     >
@@ -184,20 +183,6 @@ export default function LoginScreen({ navigation, route }) {
                 </View>
             </ScrollView>
         </KeyboardAvoidingView>
-=======
-            <TouchableOpacity style={styles.button} onPress={handleLogin}>
-                <Text style={styles.buttonText}>Continue</Text>
-            </TouchableOpacity>
-
-
-            <Text style={{ fontSize: 16, textAlign: "center", marginTop: 20 }}>
-                Don't have an account?{" "}
-                <Text style={{ color: "#B39DDB", fontWeight: "bold", fontSize: 18 }} onPress={() => navigation.navigate("SignUp")}>
-                    Sign Up
-                </Text>
-            </Text>
-        </View>
->>>>>>> 7597b64c4396117dbca6a2af1d7a2944f461265a
     );
 }
 

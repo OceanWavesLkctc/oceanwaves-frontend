@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useContext } from 'react';
 import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -7,23 +6,6 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { AuthContext } from '../../context/AuthContext';
 import BottomBar from './BottomBar';
 import FacultyBottomBar from '../Faculty/FacultyBottomBar';
-=======
-import { View, Text, ScrollView, Image, TouchableOpacity, Platform,StyleSheet } from 'react-native'
-import React from 'react'
-import BottomBar from './BottomBar'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-
-const UserProfile = ({ navigation }) => {
-  return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={{ paddingBottom: 80 }}>
-        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-          <Text style={{ fontSize: 22, fontWeight: "bold" }}>User Profile</Text>
-          <View style={{ paddingTop: "15" }}>
-            <Image source={require("./commonimages/avatar.png")} style={{ width: 60, height: 60 }} />
-          </View>
->>>>>>> 7597b64c4396117dbca6a2af1d7a2944f461265a
 
 const UserProfile = () => {
     const { user, logout } = useContext(AuthContext);
@@ -38,7 +20,6 @@ const UserProfile = () => {
                 <View style={styles.profileCard}>
                     <Text style={styles.title}>My Profile</Text>
 
-<<<<<<< HEAD
                     <View style={styles.avatarContainer}>
                         <Image
                             source={require("./commonimages/avatar.png")}
@@ -189,14 +170,3 @@ const styles = StyleSheet.create({
         textAlign: "center",
     }
 });
-=======
-export default UserProfile
-
-
-const styles = StyleSheet.create({ 
-  container:{
-      flex: 1,
-      paddingTop: Platform.OS === "android" ? 25 : 0
-  }
-})
->>>>>>> 7597b64c4396117dbca6a2af1d7a2944f461265a
