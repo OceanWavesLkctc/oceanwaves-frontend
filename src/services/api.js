@@ -1,7 +1,7 @@
 import { Platform } from 'react-native';
 
 // UPDATE THIS WITH YOUR LOCAL MACHINE'S IP ADDRESS IF TESTING ON A PHYSICAL DEVICE
-const LOCAL_IP = '10.146.161.198'; // Actual Wi-Fi IP of the host machine
+const LOCAL_IP = '192.168.31.234'; // Actual Wi-Fi IP of the host machine
 const BACKEND_PORT = '3000';
 
 export const API_BASE_URL = Platform.select({
