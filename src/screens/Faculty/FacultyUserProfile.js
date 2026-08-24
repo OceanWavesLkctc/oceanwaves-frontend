@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useContext } from 'react'
 import FacultyBottomBar from './FacultyBottomBar';
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -35,14 +36,42 @@ const FacultyUserProfile = () => {
               <Text style={{ color: "#333", fontWeight: "500" }}>{user?.email || "N/A"}</Text>
             </View>
           </View>
+=======
+import { View, Text, ScrollView, Image, TouchableOpacity, Platform,StyleSheet } from 'react-native'
+import React from 'react'
+import FacultyBottomBar from './FacultyBottomBar';
+import { SafeAreaView } from 'react-native-safe-area-context'
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+
+const FacultyUserProfile = ({ navigation }) => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView contentContainerStyle={{ paddingBottom: 80 }}>
+        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+          <Text style={{ fontSize: 22, fontWeight: "bold" }}>User Profile</Text>
+          <View style={{ paddingTop: "15" }}>
+            <Image source={require("./FacultyImages/avatar.png")} style={{ width: 60, height: 60 }} />
+          </View>
+
+          <Text style={{ fontSize: 18, fontWeight: "600", padding: 5 }}>John Doe</Text>
+          <Text style={{ fontSize: 18, fontWeight: "600", padding: 5 }}>Dept. Name: Computer Science</Text>
+          <Text style={{ fontSize: 18, fontWeight: "600", padding: 5 }}>Email: john.doe@lkctc.edu</Text>
+>>>>>>> 7597b64c4396117dbca6a2af1d7a2944f461265a
 
         </View>
 
         <TouchableOpacity
+<<<<<<< HEAD
           style={{ backgroundColor: "#B39DDB", marginBottom: 10, width: 150, borderRadius: 25, padding: 12, alignSelf: "center", marginTop: 30 }}
           onPress={handleLogout}
         >
           <Text style={{ alignSelf: "center", color: "white", fontSize: 18, fontWeight: "600" }}> Log Out {" "}<FontAwesome name="sign-out" size={20} color="white" /></Text>
+=======
+          style={{ backgroundColor: "#B39DDB", marginBottom: 10, width: 150, borderRadius: 75, padding: 10, alignSelf: "center", marginTop: "30" }}
+          onPress={() => navigation.replace("PublicPreview")}
+        >
+          <Text style={{ alignSelf: "center", color: "white", fontSize: 20, fontWeight: "600" }}> Log Out {" "}<FontAwesome name="sign-out" size={24} color="white" /></Text>
+>>>>>>> 7597b64c4396117dbca6a2af1d7a2944f461265a
         </TouchableOpacity>
       </ScrollView>
       <FacultyBottomBar />
