@@ -42,29 +42,26 @@ const UserProfile = () => {
                         <Text style={styles.detailValue}>{user?.department || "N/A"}</Text>
                     </View>
 
-                    {
-                        user?.role === 'student' && (
-                            <>
-                                <View style={styles.detailRow}>
-                                    <Text style={styles.detailLabel}>Course Enrolled:</Text>
-                                    <Text style={styles.detailValue}>{user?.course || "N/A"}</Text>
-                                </View>
-                                <View style={styles.detailRow}>
-                                    <Text style={styles.detailLabel}>Roll Number:</Text>
-                                    <Text style={styles.detailValue}>{user?.rollnumber || "N/A"}</Text>
-                                </View>
-                            </>
-                        )
-                    }
-                </View >
+                    {user?.role === 'student' ? (
+                        <>
+                            <View style={styles.detailRow}>
+                                <Text style={styles.detailLabel}>Course Enrolled:</Text>
+                                <Text style={styles.detailValue}>{user?.course || "N/A"}</Text>
+                            </View>
+                            <View style={styles.detailRow}>
+                                <Text style={styles.detailLabel}>Roll Number:</Text>
+                                <Text style={styles.detailValue}>{user?.rollnumber || "N/A"}</Text>
+                            </View>
+                        </>
+                    ) : null}
+                </View>
 
                 <TouchableOpacity
                     style={styles.logoutBtn}
                     onPress={handleLogout}
                 >
-                    <Text style={styles.logoutBtnText}>
-                        Log Out <FontAwesome name="sign-out" size={20} color="white" />
-                    </Text>
+                    <Text style={styles.logoutBtnText}>Log Out</Text>
+                    <FontAwesome name="sign-out" size={20} color="white" style={{ marginLeft: 8 }} />
                 </TouchableOpacity>
             </ScrollView >
 
@@ -151,6 +148,9 @@ const styles = StyleSheet.create({
         fontWeight: "500",
     },
     logoutBtn: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
         backgroundColor: "#B39DDB",
         borderRadius: 25,
         paddingVertical: 14,

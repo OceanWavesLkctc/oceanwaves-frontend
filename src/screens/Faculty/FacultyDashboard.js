@@ -203,7 +203,7 @@ export default function FacultyDashboard({ navigation }) {
 
             <View style={styles.sectionHeader}>
                 <Text style={styles.sectionTitle}>My Uploaded Resources</Text>
-                {actionLoading && <ActivityIndicator size="small" color="#5B3FD1" />}
+                {actionLoading ? <ActivityIndicator size="small" color="#5B3FD1" /> : null}
             </View>
 
             {loading ? (

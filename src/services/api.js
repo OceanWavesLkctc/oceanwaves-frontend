@@ -1,13 +1,25 @@
-import { Platform } from 'react-native';
+import { Platform, NativeModules } from 'react-native';
 
-const LOCAL_IP = '192.168.31.234';
+const getDevServerHost = () => {
+    try {
+        const scriptURL = NativeModules?.SourceCode?.scriptURL;
+        if (scriptURL) {
+            const address = scriptURL.split('://')[1]?.split('/')[0];
+            const hostname = address?.split(':')[0];
+            if (hostname && hostname !== 'localhost' && hostname !== '127.0.0.1') {
+                return hostname;
+            }
+        }
+    } catch (e) {
+        // Fallback below
+    }
+    return '172.24.165.198'; // Current mobile hotspot IP
+};
+
+const LOCAL_IP = getDevServerHost();
 const BACKEND_PORT = '3000';
 
-export const API_BASE_URL = Platform.select({
-    android: `http://${LOCAL_IP}:${BACKEND_PORT}/lkctc/oceanwaves`,
-    ios: `http://localhost:${BACKEND_PORT}/lkctc/oceanwaves`,
-    default: `http://localhost:${BACKEND_PORT}/lkctc/oceanwaves`,
-});
+export const API_BASE_URL = `http://${LOCAL_IP}:${BACKEND_PORT}/lkctc/oceanwaves`;
 
 console.log('API Base URL is set to:', API_BASE_URL);
 

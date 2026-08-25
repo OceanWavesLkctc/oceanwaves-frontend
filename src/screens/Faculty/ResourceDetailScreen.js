@@ -5,10 +5,10 @@ import {
     StyleSheet, 
     FlatList, 
     TouchableOpacity, 
-    ActivityIndicator,
-    SafeAreaView
+    ActivityIndicator
 } from 'react-native';
-import AntDesign from '@expo/vector-icons/AntDesign';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Ionicons } from '@expo/vector-icons';
 import { AuthContext } from '../../context/AuthContext';
 import { api } from '../../services/api';
 
@@ -75,7 +75,7 @@ export default function FacultyResourceDetailScreen({ route, navigation }) {
     if (errorMsg || !resource) {
         return (
             <SafeAreaView style={styles.centeredContainer}>
-                <AntDesign name="exclamationcircleo" size={48} color="red" />
+                <Ionicons name="alert-circle-outline" size={48} color="red" />
                 <Text style={styles.errorText}>{errorMsg || "Resource not found"}</Text>
                 <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()}>
                     <Text style={styles.backBtnText}>Go Back</Text>
@@ -85,11 +85,11 @@ export default function FacultyResourceDetailScreen({ route, navigation }) {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={styles.container} edges={['top', 'left', 'right']}>
             {/* Custom Header Bar */}
             <View style={styles.headerBar}>
                 <TouchableOpacity onPress={() => navigation.goBack()} style={styles.iconButton}>
-                    <AntDesign name="arrowleft" size={24} color="#333" />
+                    <Ionicons name="arrow-back" size={24} color="#333" />
                 </TouchableOpacity>
                 <Text style={styles.headerTitle} numberOfLines={1}>Resource Questions</Text>
                 <View style={{ width: 40 }} /> {/* Spacer */}

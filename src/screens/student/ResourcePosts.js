@@ -137,41 +137,40 @@ const ResourcePosts = () => {
                                 style={styles.logo}
                             />
                             <Text style={styles.headerTitle}>Ocean Notes</Text>
-                            <Text style={styles.headerSubtitle}>Resource Sharing for Academics</Text>
-                            {user && (
-                                <Text style={styles.welcomeText}>
-                                    Hello, {user.name} • {user.course || "Student"}
-                                </Text>
-                            )}
-                        </View>
-
-                        <TextInput
-                            placeholder="Search subjects or topics..."
-                            style={styles.searchBar}
-                            value={searchQuery}
-                            onChangeText={setSearchQuery}
-                        />
-
-                        {errorMsg ? (
-                            <View style={styles.offlineBanner}>
-                                <Text style={styles.offlineText}>{errorMsg}</Text>
-                            </View>
+                            {user ? (
+                            <Text style={styles.welcomeText}>
+                                Hello, {user.name || "Student"} • {user.course || "Student"}
+                            </Text>
                         ) : null}
+                    </View>
 
-                        <Text style={styles.sectionTitle}>
-                            Academic Resources
-                        </Text>
-                    </>
-                }
-                ListEmptyComponent={
-                    !loading && (
-                        <View style={styles.emptyContainer}>
-                            <Text style={styles.emptyText}>No study resources found</Text>
+                    <TextInput
+                        placeholder="Search subjects or topics..."
+                        style={styles.searchBar}
+                        value={searchQuery}
+                        onChangeText={setSearchQuery}
+                    />
+
+                    {errorMsg ? (
+                        <View style={styles.offlineBanner}>
+                            <Text style={styles.offlineText}>{errorMsg}</Text>
                         </View>
-                    )
-                }
-                contentContainerStyle={styles.listContent}
-            />
+                    ) : null}
+
+                    <Text style={styles.sectionTitle}>
+                        Academic Resources
+                    </Text>
+                </>
+            }
+            ListEmptyComponent={
+                !loading ? (
+                    <View style={styles.emptyContainer}>
+                        <Text style={styles.emptyText}>No study resources found</Text>
+                    </View>
+                ) : null
+            }
+            contentContainerStyle={styles.listContent}
+        />
         </View>
     );
 };

@@ -9,7 +9,8 @@ import {
     Alert,
     ScrollView
 } from "react-native";
-import AntDesign from '@expo/vector-icons/AntDesign';
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import * as DocumentPicker from 'expo-document-picker';
 
 import { AuthContext } from '../../context/AuthContext';
@@ -108,7 +109,7 @@ export default function UploadResourceScreen({ navigation }) {
             {/* Custom Header Bar */}
             <View style={styles.headerBar}>
                 <TouchableOpacity onPress={() => navigation.navigate("FacultyDashboard")} style={styles.iconButton}>
-                    <AntDesign name="arrowleft" size={24} color="#333" />
+                    <Ionicons name="arrow-back" size={24} color="#333" />
                 </TouchableOpacity>
                 <Text style={styles.headerTitle}>Upload Resource</Text>
                 <View style={{ width: 40 }} />
@@ -153,17 +154,17 @@ export default function UploadResourceScreen({ navigation }) {
 
                     {selectedFile ? (
                         <View style={styles.fileSelectedBox}>
-                            <AntDesign name="file-excel" size={24} color="#2E7D32" />
+                            <FontAwesome name="file-excel-o" size={24} color="#2E7D32" />
                             <Text style={styles.fileNameText} numberOfLines={1}>
                                 {selectedFile.name}
                             </Text>
                             <TouchableOpacity onPress={() => setSelectedFile(null)}>
-                                <AntDesign name="closecircle" size={18} color="#FF3B30" />
+                                <Ionicons name="close-circle" size={20} color="#FF3B30" />
                             </TouchableOpacity>
                         </View>
                     ) : (
                         <TouchableOpacity style={styles.pickerBtn} onPress={handlePickDocument}>
-                            <AntDesign name="upload" size={20} color="#5B3FD1" />
+                            <Ionicons name="cloud-upload-outline" size={22} color="#5B3FD1" />
                             <Text style={styles.pickerBtnText}>Select Excel File</Text>
                         </TouchableOpacity>
                     )}

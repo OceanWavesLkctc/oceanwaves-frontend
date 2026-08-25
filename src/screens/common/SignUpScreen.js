@@ -169,7 +169,7 @@ const SignUpScreen = ({ navigation }) => {
                         onChangeText={setDepartment}
                     />
 
-                    {selectedRole === "Student" && (
+                    {selectedRole === "Student" ? (
                         <>
                             <Text style={styles.label}>Roll Number *</Text>
                             <TextInput
@@ -188,7 +188,7 @@ const SignUpScreen = ({ navigation }) => {
                                 onChangeText={setCourse}
                             />
                         </>
-                    )}
+                    ) : null}
 
                     <TouchableOpacity
                         style={[styles.registerBtn, loading && styles.registerBtnDisabled]}

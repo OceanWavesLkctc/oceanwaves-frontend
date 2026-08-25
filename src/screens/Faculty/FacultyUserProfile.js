@@ -1,7 +1,8 @@
-import React, { useContext } from 'react'
-import FacultyBottomBar from './FacultyBottomBar';
-import { SafeAreaView } from 'react-native-safe-area-context'
+import React, { useContext } from 'react';
+import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet, Platform } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import FacultyBottomBar from './FacultyBottomBar';
 import { AuthContext } from '../../context/AuthContext';
 
 const FacultyUserProfile = () => {
@@ -12,7 +13,7 @@ const FacultyUserProfile = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['top', 'left', 'right']}>
       <ScrollView contentContainerStyle={{ paddingBottom: 80 }}>
         <View style={{ flex: 1, justifyContent: "center", alignItems: "center", paddingVertical: 20 }}>
           <Text style={{ fontSize: 22, fontWeight: "bold", color: "#5B3FD1" }}>User Profile</Text>
@@ -39,23 +40,40 @@ const FacultyUserProfile = () => {
         </View>
 
         <TouchableOpacity
-          style={{ backgroundColor: "#B39DDB", marginBottom: 10, width: 150, borderRadius: 25, padding: 12, alignSelf: "center", marginTop: 30 }}
+          style={styles.logoutBtn}
           onPress={handleLogout}
         >
-          <Text style={{ alignSelf: "center", color: "white", fontSize: 18, fontWeight: "600" }}> Log Out {" "}<FontAwesome name="sign-out" size={20} color="white" /></Text>
+          <Text style={styles.logoutBtnText}>Log Out</Text>
+          <FontAwesome name="sign-out" size={20} color="white" style={{ marginLeft: 8 }} />
         </TouchableOpacity>
       </ScrollView>
       <FacultyBottomBar />
     </SafeAreaView>
-  )
-}
+  );
+};
 
-export default FacultyUserProfile
-
+export default FacultyUserProfile;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Platform.OS === "android" ? 25 : 0
-  }
-})
+    backgroundColor: '#F6F5FB',
+  },
+  logoutBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#B39DDB',
+    marginBottom: 10,
+    width: 160,
+    borderRadius: 25,
+    padding: 12,
+    alignSelf: 'center',
+    marginTop: 30,
+  },
+  logoutBtnText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: '600',
+  },
+});

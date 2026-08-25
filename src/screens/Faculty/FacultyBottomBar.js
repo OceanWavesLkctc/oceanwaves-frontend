@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import React from 'react'
 import AntDesign from '@expo/vector-icons/AntDesign';
+import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 const FacultyBottomBar = () => {
@@ -24,8 +25,8 @@ const FacultyBottomBar = () => {
                 style={styles.iconStyle}
                 onPress={() => navigation.navigate("UploadResource")}
             >
-                <AntDesign
-                    name="clouduploado"
+                <Ionicons
+                    name="cloud-upload-outline"
                     size={28}
                     color={route.name === "UploadResource" ? "white" : "#E2D9F3"}
                 />
